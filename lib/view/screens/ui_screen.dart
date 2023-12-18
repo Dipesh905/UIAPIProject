@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uiapiapp/controller/provider/activity_transaction_provider.dart';
 import 'package:uiapiapp/controller/resources/colors.dart';
+import 'package:uiapiapp/view/widgets/common_card_widget.dart';
 
 class UIScreen extends StatelessWidget {
   const UIScreen({super.key});
@@ -70,15 +71,14 @@ class UIScreen extends StatelessWidget {
                                 child: Text(
                                   'Activities',
                                   style: TextStyle(
-                                    fontWeight: activityTransactionStatus ==
-                                            ActivityTransactionStatus.activity
-                                        ? FontWeight.bold
-                                        : null,
-                                    color: activityTransactionStatus ==
-                                            ActivityTransactionStatus.activity
-                                        ? Colors.black
-                                        : Colors.grey,
-                                  ),
+                                      fontWeight: activityTransactionStatus ==
+                                              ActivityTransactionStatus.activity
+                                          ? FontWeight.bold
+                                          : null,
+                                      color: activityTransactionStatus ==
+                                              ActivityTransactionStatus.activity
+                                          ? AppColor.blackColor
+                                          : AppColor.greyColor),
                                 ),
                               ),
                             ),
@@ -120,8 +120,8 @@ class UIScreen extends StatelessWidget {
                                     color: activityTransactionStatus ==
                                             ActivityTransactionStatus
                                                 .transaction
-                                        ? Colors.black
-                                        : Colors.grey,
+                                        ? AppColor.blackColor
+                                        : AppColor.greyColor,
                                   ),
                                 ),
                               ),
@@ -133,6 +133,30 @@ class UIScreen extends StatelessWidget {
                   },
                 ),
               ),
+              SizedBox(
+                height: 180,
+                width: double.infinity,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    CommonCardWidget(
+                        title: 'Total Deposit',
+                        amount: 22534.05,
+                        cardColor: AppColor.lightPinkColor,
+                        iconData: Icons.add),
+                    CommonCardWidget(
+                        title: 'Total Withdrawal',
+                        amount: 22534.05,
+                        cardColor: AppColor.lightBlueColor,
+                        iconData: Icons.remove),
+                    CommonCardWidget(
+                        title: 'title',
+                        amount: 28723.32,
+                        cardColor: AppColor.lightPurpleColor,
+                        iconData: Icons.phone)
+                  ],
+                ),
+              )
             ],
           ),
         ),
