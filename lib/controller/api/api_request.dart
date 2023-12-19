@@ -1,17 +1,14 @@
 import 'package:dio/dio.dart';
 
 class ApiRequest {
-  Future<Response<T>?> getRequest<T>(
-    String baseUrl,
-    String endpoint,
-  ) async {
+  Future<Response<T>?> getRequest<T>(String baseUrl, String endpoint,
+      [int? postId]) async {
     Response<T>? response;
     final Dio dio = Dio();
 
     try {
       response = await dio.get(
-        baseUrl + endpoint,
-      );
+          postId == null ? '$baseUrl$endpoint' : '$baseUrl$endpoint/$postId');
 
       if (response.statusCode == 200) {
         return response;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uiapiapp/view/screens/api_screens.dart';
+import 'package:uiapiapp/view/screens/new_api_screen.dart';
 import 'package:uiapiapp/view/screens/ui_screen.dart';
 import 'package:uiapiapp/view/widgets/button_widget.dart';
 
@@ -34,7 +35,7 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ApiScreen()));
+                          builder: (context) => const NewApiScreen()));
                 },
                 buttonTitle: 'API')
           ],
