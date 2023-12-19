@@ -7,6 +7,16 @@ class AsyncPostsNotifier extends AsyncNotifier<List<PostModel>> {
 
   Future<List<PostModel>> _fetchposts() async => _apiFunction.getPosts();
 
+  Future<void> refetchPosts() async {
+    state = const AsyncValue<List<PostModel>>.loading();
+
+    state = await AsyncValue.guard(() async {
+      await _apiFunction.getPosts();
+
+      return _fetchposts();
+    });
+  }
+
   @override
   Future<List<PostModel>> build() async {
     return _fetchposts();
