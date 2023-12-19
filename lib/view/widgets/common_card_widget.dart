@@ -45,9 +45,8 @@ class CommonCardWidget extends StatelessWidget {
               Text(
                 title,
                 style: textStyle.copyWith(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.normal,
-                  // color: AppColor.greyColor
                 ),
               ),
               Text(
