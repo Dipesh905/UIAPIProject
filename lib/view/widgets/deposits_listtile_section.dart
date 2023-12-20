@@ -9,19 +9,35 @@ class DepositsListTileSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: deposits.length,
-      itemBuilder: (BuildContext context, int index) {
-        return CustomListTile(
-          bankName: deposits[index].bankName,
-          amount: deposits[index].amount,
-          successColor: deposits[index].depositSuccessColor,
-          listTileCardColor: index == 0 ? Colors.black : null,
-          isTextWhite: index == 0 ? true : false,
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.only(right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Padding(
+            padding: EdgeInsets.fromLTRB(8, 8, 0, 8),
+            child: Text(
+              'February 02, 2002',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+          ),
+          ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: deposits.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CustomListTile(
+                bankImage: deposits[index].bankImage,
+                bankName: deposits[index].bankName,
+                amount: deposits[index].amount,
+                successColor: deposits[index].depositSuccessColor,
+                listTileCardColor: index == 0 ? Colors.black : null,
+                isTextWhite: index == 0 ? true : false,
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }

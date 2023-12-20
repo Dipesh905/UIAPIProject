@@ -15,7 +15,7 @@ List<TransactionModel> transactions = [
       icon: Icons.remove),
   TransactionModel(
       title: 'title',
-      amount: 331.32,
+      amount: 3314.32,
       color: AppColor.lightPurpleColor,
       icon: Icons.abc)
 ];

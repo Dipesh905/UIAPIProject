@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:uiapiapp/controller/resources/colors.dart';
 
 class CommonCardWidget extends StatelessWidget {
   const CommonCardWidget({
@@ -20,9 +22,11 @@ class CommonCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final value = NumberFormat("#,##0.00", "en_US");
+
     return Container(
       margin: const EdgeInsets.fromLTRB(4, 8, 4, 8),
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: cardColor,
         borderRadius: BorderRadius.circular(20),
@@ -34,6 +38,8 @@ class CommonCardWidget extends StatelessWidget {
           Align(
             alignment: Alignment.topLeft,
             child: CircleAvatar(
+              backgroundColor: AppColor.whiteColor,
+              radius: 24,
               child: Center(
                 child: Icon(iconData),
               ),
@@ -45,12 +51,13 @@ class CommonCardWidget extends StatelessWidget {
               Text(
                 title,
                 style: textStyle.copyWith(
+                  color: AppColor.lightGreyTextColor,
                   fontSize: 16,
                   fontWeight: FontWeight.normal,
                 ),
               ),
               Text(
-                amount.toString(),
+                value.format(double.parse('$amount')),
                 style: textStyle,
               ),
             ],

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:uiapiapp/controller/resources/colors.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
     required this.bankName,
+    required this.bankImage,
     required this.amount,
     required this.successColor,
     this.listTileCardColor,
@@ -13,12 +15,15 @@ class CustomListTile extends StatelessWidget {
 
   final int amount;
   final String bankName;
+  final String bankImage;
   final Color successColor;
   final Color? listTileCardColor;
   final bool? isTextWhite;
 
   @override
   Widget build(BuildContext context) {
+    final formatter = NumberFormat('#,##,00');
+
     return Container(
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(12),
@@ -28,15 +33,15 @@ class CustomListTile extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const CircleAvatar(
-            child: Icon(Icons.abc),
+          CircleAvatar(
+            backgroundImage: AssetImage(bankImage),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '+\$$amount',
+                '\$${formatter.format(int.parse('$amount'))}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: isTextWhite == true ? AppColor.whiteColor : null),

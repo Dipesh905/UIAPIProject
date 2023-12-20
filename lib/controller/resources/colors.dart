@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
 class AppColor {
-  static Color lightPinkColor = Colors.pink.shade300;
+  static Color lightGreyColor = const Color(0xfff5f4fb);
 
-  static Color lightBlueColor = Colors.blue.shade300;
+  static Color lightGreyTextColor = const Color(0xff907f99);
 
-  static Color lightGreyColor = Colors.grey.shade200;
+  static Color lightPurpleColor = const Color(0xffe2dcfe);
 
-  static Color lightPurpleColor = Colors.purple.shade200;
+  static Color lightPinkColor = const Color(0xffffdfff);
 
-  static const Color whiteColor = Colors.white;
+  static Color lightBlueColor = const Color(0xffe7f0ff);
 
-  static const Color blackColor = Colors.black;
+  static Color successfulColorInBlack = const Color(0xff2a234d);
+
+  static const Color whiteColor = Color(0xfffbfaff);
+
+  static const Color blackColor = Color(0xff17132b);
 
   static const Color greyColor = Colors.grey;
 
-  static List<Color> bluePinkGradient = <Color>[
-    Colors.blue.shade200,
-    Colors.pink.shade200,
-  ];
+  static List<Color> bluePinkGradient = <Color>[lightBlueColor, lightPinkColor];
 }
