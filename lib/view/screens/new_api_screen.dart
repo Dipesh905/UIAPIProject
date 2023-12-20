@@ -210,66 +210,68 @@ class NewApiScreen extends StatelessWidget {
                                                                 )
                                                                 .first;
 
-                                                        return Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .all(8.0),
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              const Text(
-                                                                  'Personal Information'),
-                                                              Text(
-                                                                  'Id: ${userWithSameUserIdInPost.id}'),
-                                                              Text(
-                                                                  'Name: ${userWithSameUserIdInPost.name}'),
-                                                              Text(
-                                                                  'UserName: ${userWithSameUserIdInPost.username}'),
-                                                              const Text(
-                                                                  'Personal Information'),
-                                                              Text(
-                                                                  'Email: ${userWithSameUserIdInPost.email}'),
-                                                              Text(
-                                                                  'phone: ${userWithSameUserIdInPost.phone}'),
-                                                              Text(
-                                                                  'website: ${userWithSameUserIdInPost.website}'),
-                                                              const Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        top:
-                                                                            8.0),
-                                                                child: Text(
-                                                                    'Address'),
-                                                              ),
-                                                              Text(
-                                                                  'Street: ${userWithSameUserIdInPost.address.street}'),
-                                                              Text(
-                                                                  'suite: ${userWithSameUserIdInPost.address.suite}'),
-                                                              Text(
-                                                                  'city: ${userWithSameUserIdInPost.address.city}'),
-                                                              Text(
-                                                                  'zipcode: ${userWithSameUserIdInPost.address.zipcode}'),
-                                                              Text(
-                                                                  'lat: ${userWithSameUserIdInPost.address.geo.lat}'),
-                                                              Text(
-                                                                  'lng: ${userWithSameUserIdInPost.address.geo.lng}'),
-                                                              const Padding(
-                                                                padding: EdgeInsets
-                                                                    .only(
-                                                                        top:
-                                                                            8.0),
-                                                                child: Text(
-                                                                    'Company Details'),
-                                                              ),
-                                                              Text(
-                                                                  'name: ${userWithSameUserIdInPost.company.name}'),
-                                                              Text(
-                                                                  'catchPhrase: ${userWithSameUserIdInPost.company.catchPhrase}'),
-                                                              Text(
-                                                                  'bs: ${userWithSameUserIdInPost.company.bs}'),
-                                                            ],
+                                                        return SingleChildScrollView(
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(8.0),
+                                                            child: Column(
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                const Text(
+                                                                    'Personal Information'),
+                                                                Text(
+                                                                    'Id: ${userWithSameUserIdInPost.id}'),
+                                                                Text(
+                                                                    'Name: ${userWithSameUserIdInPost.name}'),
+                                                                Text(
+                                                                    'UserName: ${userWithSameUserIdInPost.username}'),
+                                                                const Text(
+                                                                    'Personal Information'),
+                                                                Text(
+                                                                    'Email: ${userWithSameUserIdInPost.email}'),
+                                                                Text(
+                                                                    'phone: ${userWithSameUserIdInPost.phone}'),
+                                                                Text(
+                                                                    'website: ${userWithSameUserIdInPost.website}'),
+                                                                const Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .only(
+                                                                              top: 8.0),
+                                                                  child: Text(
+                                                                      'Address'),
+                                                                ),
+                                                                Text(
+                                                                    'Street: ${userWithSameUserIdInPost.address.street}'),
+                                                                Text(
+                                                                    'suite: ${userWithSameUserIdInPost.address.suite}'),
+                                                                Text(
+                                                                    'city: ${userWithSameUserIdInPost.address.city}'),
+                                                                Text(
+                                                                    'zipcode: ${userWithSameUserIdInPost.address.zipcode}'),
+                                                                Text(
+                                                                    'lat: ${userWithSameUserIdInPost.address.geo.lat}'),
+                                                                Text(
+                                                                    'lng: ${userWithSameUserIdInPost.address.geo.lng}'),
+                                                                const Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .only(
+                                                                              top: 8.0),
+                                                                  child: Text(
+                                                                      'Company Details'),
+                                                                ),
+                                                                Text(
+                                                                    'name: ${userWithSameUserIdInPost.company.name}'),
+                                                                Text(
+                                                                    'catchPhrase: ${userWithSameUserIdInPost.company.catchPhrase}'),
+                                                                Text(
+                                                                    'bs: ${userWithSameUserIdInPost.company.bs}'),
+                                                              ],
+                                                            ),
                                                           ),
                                                         );
                                                       },

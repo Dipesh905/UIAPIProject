@@ -17,6 +17,42 @@ class UIScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Container(
+                //   height: 100,
+                //   width: 200,
+                //   color: Colors.blue,
+                //   child: Stack(
+                //     children: [
+
+                //       Positioned(
+                //         top: -10,
+                //         left: 0,
+                //         // bottom: 100,
+                //         child: Transform.rotate(
+                //           angle: 45,
+                //           child: Container(
+                //             height: 20,
+                //             width: 10,
+                //             color: Colors.white,
+                //           ),
+                //         ),
+                //       ),
+                //       Positioned(
+                //         top: -10,
+                //         right: -3,
+                //         // bottom: 100,
+                //         child: Transform.rotate(
+                //           angle: 135 + 45 + 45 + 10,
+                //           child: Container(
+                //             height: 20,
+                //             width: 10,
+                //             color: Colors.white,
+                //           ),
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
                 AppBarSection(),
                 Padding(
                   padding: EdgeInsets.only(right: 24, bottom: 8),
