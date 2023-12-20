@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
@@ -15,6 +17,7 @@ class ApiRequest {
         return response;
       }
     } on DioException catch (e) {
+      _handleRequestError(e);
       if (e.type == DioExceptionType.badResponse) {
         await EasyLoading.showError(
           'badResponse',
@@ -37,10 +40,34 @@ class ApiRequest {
         );
       }
     } catch (e) {
+      _handleRequestError(e);
       await EasyLoading.showError(
         'Something went Wrong',
       );
     }
-    return null;
+    return response;
+  }
+
+  /// for handling errors
+  void _handleRequestError(error) {
+    if (error is SocketException) {
+      final int? errorCode = error.osError?.errorCode;
+      if (errorCode == 61 ||
+          errorCode == 60 ||
+          errorCode == 111 ||
+          errorCode == 101 ||
+          errorCode == 104 ||
+          errorCode == 51 ||
+          errorCode == 8 ||
+          errorCode == 113 ||
+          errorCode == 7 ||
+          errorCode == 64) {
+        EasyLoading.showToast(
+          'Requesting to Server Failed!',
+        );
+      }
+    }
+
+    throw error as Exception;
   }
 }
