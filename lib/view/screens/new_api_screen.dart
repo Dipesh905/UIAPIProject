@@ -15,6 +15,16 @@ class NewApiScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Consumer(
+        builder: (context, ref, child) {
+          return FloatingActionButton(
+            onPressed: () {
+              ref.read(asyncPostsProvider.notifier).refetchPosts();
+            },
+            child: const Icon(Icons.refresh),
+          );
+        },
+      ),
       appBar: AppBar(
         title: const Text('New Api Screen'),
       ),
@@ -29,13 +39,10 @@ class NewApiScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return InkWell(
                     onTap: () {
-                      print(
-                          '=====Selected User Id===== ${posts[index].userId}  =================');
-
                       showDialog(
                         barrierDismissible: false,
                         context: context,
-                        builder: (ctx) {
+                        builder: (context) {
                           return Consumer(
                             builder: (context, ref, child) {
                               final asyncUsers = ref.watch(asyncUsersProvider);
@@ -50,17 +57,14 @@ class NewApiScreen extends StatelessWidget {
                                       .first;
 
                                   Navigator.push(
-                                      ctx,
+                                      context,
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             SelectedUserDetailScreen(
                                                 user: userWithSameUserIdInPost),
                                       ));
 
-                                  return AlertDialog(
-                                    content:
-                                        Center(child: Text(users.toString())),
-                                  );
+                                  return const SizedBox();
                                 },
                                 error: (error, stackTrace) {
                                   return const AlertDialog(
@@ -111,10 +115,6 @@ class NewApiScreen extends StatelessWidget {
                                     )),
                                 initialValue: userDetailPostDetailStatus,
                                 onSelected: (UserDetailPostDetailStatus item) {
-                                  print('===Item===$item===================');
-                                  print(
-                                      '===on popup menu selected id is ${posts[index].id}===================');
-
                                   ref
                                       .read(userDetailPostDetailStatusProvider
                                           .notifier)
@@ -122,7 +122,6 @@ class NewApiScreen extends StatelessWidget {
 
                                   if (item ==
                                       UserDetailPostDetailStatus.postDetails) {
-                                    print('==========post detail===========');
                                     showBottomSheet(
                                       context: context,
                                       builder: (context) {
@@ -167,8 +166,6 @@ class NewApiScreen extends StatelessWidget {
                                     );
                                   } else if (item ==
                                       UserDetailPostDetailStatus.userDetails) {
-                                    print(
-                                        '============user detail================');
                                     showBottomSheet(
                                       context: context,
                                       builder: (context) {

@@ -41,7 +41,7 @@ class CustomListTile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '\$${formatter.format(int.parse('$amount'))}',
+                '+\$${formatter.format(int.parse('$amount'))}',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: isTextWhite == true ? AppColor.whiteColor : null),
